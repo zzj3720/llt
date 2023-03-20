@@ -1,0 +1,7 @@
+node_modules
+dist
+out
+*.log*
+
+# Project exclude paths
+/src/preload/index.d.ts
