@@ -1,5 +1,5 @@
 import { createApp } from "vue"
-import App from "./App.vue"
+import AppView from "./AppView.vue"
 import "./utils/prism-material-light.css"
 import "uno.css"
 import {
@@ -10,7 +10,8 @@ import {
   NButton,
   NCard,
   NDivider,
-  NEllipsis, NFormItem,
+  NEllipsis,
+  NFormItem,
   NIcon,
   NInput,
   NModal,
@@ -20,6 +21,10 @@ import {
   NSpin,
   NTooltip
 } from "naive-ui"
+import { createRouter, createWebHashHistory } from "vue-router"
+import SearchView from "./SearchView.vue"
+import { template } from "lodash"
+import EnterView from "./EnterView.vue"
 
 const naive = create({
   components: [
@@ -36,7 +41,17 @@ const naive = create({
     NSelect,
     NSlider,
     NEllipsis,
-    NFormItem,
+    NFormItem
   ]
 })
-createApp(App).use(naive).mount("#app")
+
+const router = createRouter({
+  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+  history: createWebHashHistory(),
+  routes: [
+    { path: "/", component: AppView },
+    { path: "/search", component: SearchView },
+    { path: "/*", component: AppView }
+  ] // short for `routes: routes`
+})
+createApp(EnterView).use(naive).use(router).mount("#app")

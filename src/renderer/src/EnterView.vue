@@ -1,6 +1,5 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { GlobalThemeOverrides, NConfigProvider } from "naive-ui"
-import ChatPage from "./components/ChatPageView.vue"
 
 const themeOverrides: GlobalThemeOverrides = {
   common: {
@@ -39,17 +38,10 @@ const themeOverrides: GlobalThemeOverrides = {
     sizeLarge: "18px"
   }
 } as GlobalThemeOverrides
-</script>
 
+</script>
 <template>
   <n-config-provider :theme-overrides="themeOverrides">
-    <ChatPage></ChatPage>
+    <router-view></router-view>
   </n-config-provider>
 </template>
-
-<style lang="scss">
-body {
-  margin: 0;
-  padding: 0;
-}
-</style>

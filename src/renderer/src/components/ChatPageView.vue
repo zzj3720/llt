@@ -3,6 +3,7 @@ import ChatView from "./ChatView.vue"
 import DefaultChatView from "./DefaultChatView.vue"
 import { provideGlobal } from "../logic/Chat"
 import ChatTabView from "./ChatTabView.vue"
+import { useEventListener } from "@vueuse/core"
 
 const Global = provideGlobal()
 const { chats, select } = Global

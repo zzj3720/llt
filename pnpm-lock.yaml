@@ -26,13 +26,10 @@ specifiers:
   eventsource-parser: ^0.1.0
   less: ^4.1.3
   lodash: ^4.17.21
-  micromark: ^3.1.0
-  micromark-extension-gfm: ^2.0.1
   naive-ui: ^2.34.3
   nanoid: ^4.0.1
   prettier: ^2.8.4
   prisma: ^4.11.0
-  rehype-sanitize: ^5.0.1
   rehype-stringify: ^9.0.3
   remark: ^14.0.2
   remark-gfm: ^3.0.1
@@ -45,6 +42,7 @@ specifiers:
   unocss-preset-chinese: ^0.0.6
   vite: ^4.1.4
   vue: ^3.2.47
+  vue-router: '4'
   vue-tsc: ^1.2.0
 
 dependencies:
@@ -58,10 +56,7 @@ dependencies:
   electron-updater: 5.3.0
   eventsource-parser: 0.1.0
   lodash: 4.17.21
-  micromark: 3.1.0
-  micromark-extension-gfm: 2.0.1
   nanoid: 4.0.1
-  rehype-sanitize: 5.0.1
   rehype-stringify: 9.0.3
   remark: 14.0.2
   remark-gfm: 3.0.1
@@ -70,6 +65,7 @@ dependencies:
   sass: 1.59.3
   unified: 10.1.2
   unocss: 0.50.6_vite@4.2.0
+  vue-router: 4.1.6_vue@3.2.47
 
 devDependencies:
   '@electron-toolkit/tsconfig': 1.0.1_@types+node@16.18.14
@@ -1537,6 +1533,10 @@ packages:
     dependencies:
       '@vue/compiler-dom': 3.2.47
       '@vue/shared': 3.2.47
+
+  /@vue/devtools-api/6.5.0:
+    resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==}
+    dev: false
 
   /@vue/eslint-config-prettier/7.1.0_a7sjvsbcgg5dveitgz3whbbski:
     resolution: {integrity: sha512-Pv/lVr0bAzSIHLd9iz0KnvAr4GKyCEl+h52bc4e5yWuDVtLgFwycF7nrbWTAQAS+FU6q1geVd07lc6EWfJiWKQ==}
@@ -3625,12 +3625,6 @@ packages:
       zwitch: 2.0.4
     dev: false
 
-  /hast-util-sanitize/4.1.0:
-    resolution: {integrity: sha512-Hd9tU0ltknMGRDv+d6Ro/4XKzBqQnP/EZrpiTbpFYfXv/uOhWeKc+2uajcbEvAEH98VZd7eII2PiXm13RihnLw==}
-    dependencies:
-      '@types/hast': 2.3.4
-    dev: false
-
   /hast-util-to-html/8.0.4:
     resolution: {integrity: sha512-4tpQTUOr9BMjtYyNlt0P50mH7xj0Ks2xpo8M943Vykljf99HW6EzulIoJP1N3eKOSScEHzyzi9dm7/cn0RfGwA==}
     dependencies:
@@ -5489,14 +5483,6 @@ packages:
       rc: 1.2.8
     dev: false
 
-  /rehype-sanitize/5.0.1:
-    resolution: {integrity: sha512-da/jIOjq8eYt/1r9GN6GwxIR3gde7OZ+WV8pheu1tL8K0D9KxM2AyMh+UEfke+FfdM3PvGHeYJU0Td5OWa7L5A==}
-    dependencies:
-      '@types/hast': 2.3.4
-      hast-util-sanitize: 4.1.0
-      unified: 10.1.2
-    dev: false
-
   /rehype-stringify/9.0.3:
     resolution: {integrity: sha512-kWiZ1bgyWlgOxpqD5HnxShKAdXtb2IUljn3hQAhySeak6IOQPPt6DeGnsIh4ixm7yKJWzm8TXFuC/lPfcWHJqw==}
     dependencies:
@@ -6552,6 +6538,15 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /vue-router/4.1.6_vue@3.2.47:
+    resolution: {integrity: sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': 6.5.0
+      vue: 3.2.47
+    dev: false
 
   /vue-template-compiler/2.7.14:
     resolution: {integrity: sha512-zyA5Y3ArvVG0NacJDkkzJuPQDF8RFeRlzV2vLeSnhSpieO6LK2OVbdLPi5MPPs09Ii+gMO8nY4S3iKQxBxDmWQ==}

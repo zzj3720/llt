@@ -1,12 +1,19 @@
 import { app, BrowserWindow } from "electron"
 import { electronApp, optimizer } from "@electron-toolkit/utils"
 import "./store"
-import { mainWindow } from "./mainWindow"
-
+import { getWindow } from "./window"
+import "./connect"
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
+const initWindow = () => {
+  getWindow("mainWindow")
+  getWindow("searchWindow")
+}
 app.whenReady().then(() => {
+  if (app.dock.isVisible()) {
+    app.dock.hide()
+  }
   // Set app user model id for windows
   electronApp.setAppUserModelId("com.electron")
 
@@ -16,13 +23,13 @@ app.whenReady().then(() => {
   app.on("browser-window-created", (_, window) => {
     optimizer.watchWindowShortcuts(window)
   })
-
-  mainWindow()
-
-  app.on("activate", function() {
+  initWindow()
+  app.on("activate", function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) mainWindow()
+    if (BrowserWindow.getAllWindows().length === 0) {
+      initWindow()
+    }
   })
 })
 

@@ -11,6 +11,9 @@ const props = defineProps<{
 }>()
 const html = computed(() => {
   if (props.message.content == null) return ""
+  if (props.message.role === "user") {
+    return props.message.content
+  }
   return markdown(props.message.content)
 })
 const showSource = ref(false)
@@ -30,21 +33,21 @@ const ops = computed<
     },
     props.message.disable
       ? {
-          icon: "i-material-symbols-open-in-full-rounded",
-          tips: "启用此消息",
-          size: "text-16px",
-          onClick: () => {
-            props.message.disable = false
-          }
+        icon: "i-material-symbols-open-in-full-rounded",
+        tips: "启用此消息",
+        size: "text-16px",
+        onClick: () => {
+          props.message.disable = false
         }
+      }
       : {
-          icon: "i-fluent-subtract-12-filled",
-          tips: "禁用此消息",
-          size: "text-18px",
-          onClick: () => {
-            props.message.disable = true
-          }
-        },
+        icon: "i-fluent-subtract-12-filled",
+        tips: "禁用此消息",
+        size: "text-18px",
+        onClick: () => {
+          props.message.disable = true
+        }
+      },
     {
       icon: "i-material-symbols-delete-forever",
       tips: "删除消息",
@@ -69,6 +72,7 @@ const Global = useGlobal()
         py="5px"
         px="8px"
         rd="4px"
+        whitespace="pre-wrap"
         break-all
         h="max"
         class="markdown"

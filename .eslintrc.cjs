@@ -17,6 +17,7 @@ module.exports = {
     '@vue/eslint-config-prettier'
   ],
   rules: {
+    "@typescript-eslint/ban-ts-comment":"off"
   },
   overrides: [
     {

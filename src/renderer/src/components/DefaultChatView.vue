@@ -9,7 +9,7 @@ const Global = useGlobal()
 const config = Global.config
 function sendMessage() {
   if (text.value) {
-    Global.initChat({
+    Global.newChat({
       id: nanoid(),
       name: "与 ChatGPT 聊天",
       messages: [{ id: nanoid(), role: "user", content: text.value }],

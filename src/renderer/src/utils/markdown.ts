@@ -6,9 +6,13 @@ import rehypeStringify from "rehype-stringify"
 import remarkGfm from "remark-gfm"
 import rehypePrism from "@mapbox/rehype-prism"
 const unifiedInstance = unified()
-  .use(remarkParse)
+  .use(remarkParse,{
+    mdastExtensions:[
+
+    ]
+  })
   .use(remarkRehype)
-  .use(remarkGfm)
+  // .use(remarkGfm)
   .use(rehypePrism)
   // .use(rehypeSanitize)
   .use(rehypeStringify)
